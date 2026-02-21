@@ -1,12 +1,15 @@
 #include <Servo.h>
 
-Servo myServo;
+Servo myServoLeft;
+Servo myServoRight;
+
 int pos = 0;
 int averageLight;
 
 void setup() {
   // put your setup code here, to run once:
-  myServo.attach(13);
+  myServoLeft.attach(7);
+  myServoRight.attach(13);
   Serial.begin(9600);
 
   int n = 1000;
@@ -35,12 +38,14 @@ void loop() {
   Serial.println(value);
   if (value < averageLight) {
     for (pos = 0; pos <= 180; pos += 4) {
-      myServo.write(pos);
+      myServoLeft.write(pos);
+      myServoRight.write(pos);
       delay(10);
     }
     delay(150);
     for (pos = 180; pos >= 0; pos -= 4) {
-      myServo.write(pos);
+      myServoLeft.write(pos);
+      myServoRight.write(pos);
       delay(10);
     }
     delay(250);
