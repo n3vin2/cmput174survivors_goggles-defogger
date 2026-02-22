@@ -48,7 +48,7 @@ void loop() {
     //recalibrate();
   } */
   //Serial.println("reset");
-  int value = analogRead(A0);
+  int value = analogRead(A2);
   if (value < averageLight - 10) {
     //Serial.println("Writing");
     for (int i = 0; i < 3; i++) {
