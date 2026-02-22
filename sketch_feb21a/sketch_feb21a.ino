@@ -33,7 +33,7 @@ void setup() {
   myServoRight.attach(A1);
   Serial.begin(9600);
 
-  //recalibrate();
+  recalibrate();
   Serial.print("FINAL AVERAGE: ");
   Serial.println(averageLight);
 }
@@ -43,18 +43,13 @@ void loop() {
 
   //Serial.println(value);
   int pressed = digitalRead(8);
-  Serial.println(pressed);
+  /* Serial.println(pressed);
   if (pressed) {
     //recalibrate();
-  }
+  } */
   //Serial.println("reset");
-  //int value = analogRead(A0);
-  if (/* value < averageLight - 10 */1) {
-    //myServoLeft.write(180);
-    //Serial.println(INPUT);
-    //myServoLeft.write(0);
-    //digitalWrite(13, HIGH);
-    //delay(300);
+  int value = analogRead(A0);
+  if (value < averageLight - 10) {
     //Serial.println("Writing");
     for (int i = 0; i < 3; i++) {
       for (pos = initial_pos; pos <= initial_pos + angle; pos++) {
@@ -81,9 +76,6 @@ void loop() {
       } */
       delay(250);
     }
-  } else {
-    digitalWrite(13, LOW);
-    //delay(300);
   }
   delay(500);
 }
